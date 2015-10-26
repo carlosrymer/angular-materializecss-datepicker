@@ -12,7 +12,9 @@ bower install angular-materializecss-datepicker
 
 Through npm
 
+```
 npm install angular-materializecss-datepicker
+```
 
 ## Usage
 
