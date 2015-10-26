@@ -1,0 +1,97 @@
+<div class="picker picker--opened picker--focused" id="date-picker">
+	<div class="picker__holder">
+		<div class="picker__frame">
+			<div class="picker__wrap">
+				<div class="picker__box">
+					<div class="picker__date-display">
+						<div class="picker__weekday-display">
+							{{MaterializeDatePicker.selectedDate | date:'EEEE'}}
+						</div>
+						<div class="picker__month-display">
+							<div>
+								{{MaterializeDatePicker.selectedDate | date:'MMMM'}}
+							</div>
+						</div>
+
+						<div class="picker__day-display">
+							<div>
+								{{MaterializeDatePicker.selectedDate | date:'dd'}}
+							</div>
+						</div>
+
+						<div class="picker__year-display">
+							<div>
+								{{MaterializeDatePicker.selectedDate | date:'yyyy'}}
+							</div>
+						</div>
+					</div>
+
+					<div class="picker__calendar-container">
+						<div class="picker__header">
+							<div class="picker__month">
+								{{MaterializeDatePicker.view.date | date: 'MMMM'}}
+							</div>
+
+							<select class="picker__select--year browser-default" title="Select a year" ng-model="MaterializeDatePicker.view.year" ng-options="year for year in MaterializeDatePicker.years" ng-change="MaterializeDatePicker.updateView()">
+							</select>
+
+							<div class="picker__nav--prev" title="Previous month" ng-disabled="MaterializeDatePicker.disablePreviousMonth" ng-click="MaterializeDatePicker.goToPreviousMonth()"></div>
+							<div class="picker__nav--next" title="Next month" ng-disabled="MaterializeDatePicker.disableNextMonth" ng-click="MaterializeDatePicker.goToNextMonth()"></div>
+						</div>
+
+						<table class="picker__table">
+							<thead>
+								<tr>
+									<th class="picker__weekday" title="Sunday">
+										S
+									</th>
+									<th class="picker__weekday" title="Monday">
+										M
+									</th>
+									<th class="picker__weekday" title="Tuesday">
+										T
+									</th>
+									<th class="picker__weekday" title="Wednesday">
+										W
+									</th>
+									<th class="picker__weekday" title="Thursday">
+										T
+									</th>
+									<th class="picker__weekday" title="Friday">
+										F
+									</th>
+									<th class="picker__weekday" title="Saturday">
+										S
+									</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr ng-repeat="row in MaterializeDatePicker.view.rows track by $index">
+									<td ng-repeat="day in row track by $index" ng-click="MaterializeDatePicker.selectDay(day)">
+										<div class="picker__day" ng-class="{'picker__day--outfocus': !day.visible, 'picker__day--infocus': day.visible, 'picker__day--selected': day.selected, 'picker__day--highlighted': day.isToday}">
+											{{day.value}}
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="picker__footer">
+						<button class="btn-flat picker__today" ng-click="MaterializeDatePicker.selectToday()">
+							Today
+						</button>
+
+						<button class="btn-flat picker__clear" ng-click="MaterializeDatePicker.clear()">
+							Clear
+						</button>
+
+						<button class="btn-flat picker__close" ng-click="MaterializeDatePicker.close()">
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
