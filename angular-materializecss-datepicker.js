@@ -74,7 +74,7 @@
 	 */
 	function MaterializeDatePickerCtrl($compile, $element, $filter, $rootScope, $scope, $templateCache, DatePickerYears) {
 		var self  = this,
-				tpl   = $templateCache.get('angular-materializecss-datepicker-template.tpl.html'),
+				tpl   = $templateCache.get('angular-materializecss-datepicker.tpl.html'),
 				now   = new Date(),
 				model = $element.controller('ngModel'),
 				date  = model.$modelValue && new Date(model.$modelValue) >= now ? new Date(model.$modelValue) : now,

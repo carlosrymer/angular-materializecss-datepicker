@@ -12,7 +12,7 @@ module.exports = function (config) {
 			'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
 			'angular-materializecss-datepicker.js',
-      'angular-materializecss-datepicker-template.js',
+      'template.js',
 			'tests.spec.js'
 		],
 		preprocessors: {
